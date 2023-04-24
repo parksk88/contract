@@ -1,10 +1,14 @@
 package com.example.demo.domain;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -44,5 +48,10 @@ public class Person {
 	
 	@ToString.Exclude
 	private String phoneNumber;
+	
+//	@OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@ToString.Exclude
+	private Block block;
 	
 }
