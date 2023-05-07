@@ -22,25 +22,22 @@ class PersonRepositoryTest {
 	@Autowired
 	private PersonRepository personRepository;
 	
-//	@Test
-//	void crud() {
-//		Person person = new Person();
-//		person.setName("john");
-//		person.setAge(10);
-//		person.setBloodType("A");
-//		
-//		personRepository.save(person);
+	@Test
+	void crud() {
+		Person person = new Person();
+		person.setName("john");
+		
+		personRepository.save(person);
 //		System.out.println(personRepository.findAll());
-//		 
-//		List<Person> result = personRepository.findByName("john");
-//		
-//		assertThat(result.size()).isEqualTo(1);
-//		assertThat(result.get(0).getName()).isEqualTo("john");
+		 
+		List<Person> result = personRepository.findByName("john");
+		
+		assertThat(result.size()).isEqualTo(1);
+		assertThat(result.get(0).getName()).isEqualTo("john");
 //		assertThat(result.get(0).getAge()).isEqualTo(10);
-//		assertThat(result.get(0).getBloodType()).isEqualTo("A");
-//		
-//		//personRepository.deleteAll();
-//	}
+		
+		//personRepository.deleteAll();
+	}
 	
 //	@Test
 //	void hashCodeAndEquals() {
@@ -57,16 +54,6 @@ class PersonRepositoryTest {
 //		System.out.println(map);
 //		System.out.println(map.get(person2));
 //	}
-	
-	@Test
-	void findByBloodType() {
-		
-		List<Person> result = personRepository.findByBloodType("A");
-//		result.forEach(System.out::println);
-		assertThat(result.size()).isEqualTo(2);
-		assertThat(result.get(0).getName()).isEqualTo("martin");
-		assertThat(result.get(1).getName()).isEqualTo("benny");
-	}
 	
 	@Test
 	void findByBirthdayBetween() {
